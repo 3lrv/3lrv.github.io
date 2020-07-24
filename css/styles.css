@@ -38,7 +38,9 @@ header.banner {
     position: relative;
 }
     header.banner svg {
-        margin: 60px 0 0 60px;
+        position: absolute;
+        top: 60px;
+        left: 60px;
     }
 
     header.banner h1 {
@@ -46,7 +48,7 @@ header.banner {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: calc(100% - 80px);
+        height: 100%;
         margin: 0 auto;
         max-width: 643px;
         text-align: center;
