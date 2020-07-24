@@ -32,68 +32,179 @@ img {
     height: auto;
 }
 
-header {
+header.banner {
     background: right no-repeat url(/img/banner-logo.svg), linear-gradient(var(--overlay-bg), var(--overlay-bg)), content-box top/cover no-repeat url(/img/derrick-banner.png);
     height: 600px;
+    position: relative;
 }
-    header > svg {
-        margin: 59.5px 0 130.5px 60px;
+    header.banner svg {
+        margin: 60px 0 0 60px;
     }
 
-    header > h1 {
-        color: white;
-        font-size: 3.75rem;
-        font-weight: 300;
+    header.banner h1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100% - 80px);
         margin: 0 auto;
+        max-width: 643px;
         text-align: center;
-        width: 643px;
     }
 
-        header > h1 + h1 {
-            font-size: 4rem;
-            font-weight: 700;
+        header.banner h1 span {
+            color: white;
+            display: block;
+            font-size: 3.75rem;
+            font-weight: 300;
         }
 
-main #about {
-    margin: 40px auto 20px;
-    max-width: 1153px;
+            header.banner h1 span + span {
+                font-size: 4rem;
+                font-weight: 700;
+            }
+
+main section article {
+    margin: 40px auto;
     padding: 0 40px;
+    max-width: 1153px;
 }
 
-    main #about p {
-        color: var(--dark-gray-text);
-        font: 300 2.125rem/2.875rem 'Source Sans Pro';
-        text-align: center;
+    main section article > header {
+        margin-bottom: 40px;
     }
+
+        main section article header h1 {
+            color: var(--dark-gray-text);
+            font: 900 1.75rem/1.625rem 'Source Sans Pro';
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+main #about p {
+    color: var(--dark-gray-text);
+    font: 300 2.125rem/2.875rem 'Source Sans Pro';
+    text-align: center;
+}
+
+main #products article section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+    main #products article section threelrv-flip-card {
+        margin: 20px 0;
+    }
+
+        main #products article section threelrv-flip-card div[slot='front'],
+        main #products article section threelrv-flip-card div[slot='back'] {
+            height: 100%;
+            width: 100%;
+        }
+
+        main #products article section threelrv-flip-card div[slot='front'] {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            main #products article section threelrv-flip-card div[slot='front'] img {
+                flex: 1;
+                max-width: 163px;
+                margin: 0 auto;
+            }
+            main #products article section threelrv-flip-card div[slot='front'] p {
+                flex-shrink: 1;
+                font: 600 1.625rem/1.625rem 'Source Sans Pro';
+                padding-bottom: 1rem;
+            }
+
+        main #products article section threelrv-flip-card div[slot='back'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+            main #products article section threelrv-flip-card div[slot='back'] header {
+                display: flex;
+                flex-direction: row;
+                flex-shrink: 1;
+                justify-content: left;
+                align-items: center;
+                padding: 30px 30px 0;
+            }
+                main #products article section threelrv-flip-card div[slot='back'] header img {
+                    height: 60px;
+                    max-width: 60px;
+                }
+                main #products article section threelrv-flip-card div[slot='back'] header p {
+                    margin-left: 0.5rem;
+                    font: 600 1.5rem/1.625rem 'Source Sans Pro';
+                    text-align: left;
+                }
+
+            main #products article section threelrv-flip-card div[slot='back'] > p {
+                flex: 1;
+                padding: 1rem 30px 1rem;
+                text-align: left;
+            }
+
+
+main #team article img {
+    max-width: unset;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 40px;
+}
+
+main #team article section {
+    display: flex;
+    flex-direction: row;
+}
+
+    main #team article section threelrv-team-card + threelrv-team-card {
+        margin: 0 0 0 40px;
+    }
+
+        main #team article section threelrv-team-card p {
+            font: 300 1.125rem/1.5rem 'Source Sans Pro';
+            padding: 10px 0;
+        }
 
 main #connect {
     background: var(--connect-bg);
 }
-
-    main #connect p {
-        color: white;
-        font: 700 1.75rem/1.625rem 'Source Sans Pro';
-        max-width: 1135px;
-        margin: 0 auto;
-        padding: 40px 0 20px 60px;
+    main #connect article {
+        margin-bottom: 0;
     }
 
-        main #connect p + p {
-            font-weight: 300;
-            padding-top: 0;
-            padding-bottom: 40px;
+        main #connect article p {
+            color: white;
+            font: 900 1.75rem/1.625rem 'Source Sans Pro';
+            padding: 40px 0 20px 0;
         }
 
-        main #connect p,
-        main #connect a,
-        main #connect a:active,
-        main #connect a:hover,
-        main #connect a:link,
-        main #connect a:visited {
-            color: white;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
+            main #connect article p + p {
+                font: 300 1.5rem/1.625rem 'Source Sans Pro';
+                padding-top: 0;
+                padding-bottom: 40px;
+            }
+
+            main #connect article p,
+            main #connect article a,
+            main #connect article a:active,
+            main #connect article a:hover,
+            main #connect article a:link,
+            main #connect article a:visited {
+                color: white;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
 
 footer {
     background: var(--footer-bg);
@@ -102,8 +213,8 @@ footer {
     footer p {
         color: var(--dark-gray-text);
         font: 300 .625rem/1.5rem 'Source Sans Pro';
-        max-width: 1135px;
         margin: 0 auto;
+        max-width: 1153px;
         padding: 20px 0 20px 60px;
         text-transform: uppercase;
     }
