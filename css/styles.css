@@ -151,7 +151,8 @@ main #products article section {
             }
 
 
-main #team article img {
+main #team article > img {
+    background: content-box center/cover no-repeat url('/img/team.png');
     max-width: unset;
     width: 100vw;
     position: relative;
