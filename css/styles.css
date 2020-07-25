@@ -32,16 +32,108 @@ img {
     height: auto;
 }
 
+@-webkit-keyframes fadeInOut {
+    0% {
+        opacity:1;
+    }
+    45% {
+        opacity:1;
+    }
+    55% {
+        opacity:0;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+@-moz-keyframes fadeInOut {
+    0% {
+        opacity:1;
+    }
+    45% {
+        opacity:1;
+    }
+    55% {
+        opacity:0;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+@-o-keyframes fadeInOut {
+    0% {
+        opacity:1;
+    }
+    45% {
+        opacity:1;
+    }
+    55% {
+        opacity:0;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity:1;
+    }
+    45% {
+        opacity:1;
+    }
+    55% {
+        opacity:0;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
 header.banner {
-    background: right no-repeat url(/img/banner-logo.svg), linear-gradient(var(--overlay-bg), var(--overlay-bg)), content-box top/cover no-repeat url(/img/derrick-banner.png);
     height: 600px;
     position: relative;
 }
+
+    header.banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: right no-repeat url(/img/banner-logo.svg), linear-gradient(var(--overlay-bg), var(--overlay-bg));
+        z-index: 0;
+    }
+
     header.banner svg {
         position: absolute;
         top: 60px;
         left: 60px;
+        z-index: 4;
     }
+
+    header.banner ul.slider li {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+    }
+
+        header.banner ul.slider li.top {
+            background: top/cover no-repeat url(/img/derrick-banner.png);
+            animation: fadeInOut 3s ease-in-out infinite alternate;
+        }
+        header.banner ul.slider li.bottom {
+            background: center/cover no-repeat url(/img/analytics-banner.png);
+        }
 
     header.banner h1 {
         display: flex;
@@ -59,6 +151,7 @@ header.banner {
             display: block;
             font-size: 3.75rem;
             font-weight: 300;
+            z-index: 4;
         }
 
             header.banner h1 span + span {
@@ -154,7 +247,7 @@ main #products article section {
 
 
 main #team article > img {
-    background: content-box center/cover no-repeat url('/img/team.png');
+    background: center/cover no-repeat url('/img/team.png');
     max-width: unset;
     width: 100vw;
     position: relative;
@@ -221,3 +314,15 @@ footer {
         padding: 20px 0 20px 60px;
         text-transform: uppercase;
     }
+
+@media (min-width: 1280px) {
+    header.banner ul.slider li.top {
+        background: top/cover no-repeat url(/img/derrick-banner@2x.png);
+    }
+    header.banner ul.slider li.bottom {
+        background: center/cover no-repeat url(/img/analytics-banner@2x.png);
+    }
+    main #team article > img {
+        background: center/cover no-repeat url(/img/team@2x.png);
+    }
+}
