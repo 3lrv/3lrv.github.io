@@ -249,7 +249,7 @@ main #products article section {
 main #team article > img {
     background: center/cover no-repeat url('/img/team.png');
     max-width: unset;
-    width: 100vw;
+    width: calc(100vw - 9px);
     position: relative;
     left: 50%;
     right: 50%;
@@ -264,7 +264,7 @@ main #team article section {
 }
 
     main #team article section threelrv-team-card + threelrv-team-card {
-        margin: 0 0 0 40px;
+        margin-left: 40px;
     }
 
         main #team article section threelrv-team-card p {
@@ -324,5 +324,16 @@ footer {
     }
     main #team article > img {
         background: center/cover no-repeat url(/img/team@2x.png);
+    }
+}
+
+@media (max-width: 800px) {
+    main #team article section {
+        flex-direction: column;
+    }
+
+    main #team article section threelrv-team-card + threelrv-team-card {
+        margin-left: 0;
+        margin-top: 40px;
     }
 }
