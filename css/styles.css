@@ -32,6 +32,117 @@ img {
     height: auto;
 }
 
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 325px;
+    height: 265px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    margin: 20px 0;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 30px;
+    box-shadow: 6px 6px 8px #00000033;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    .flip-card-front img {
+        flex: 1;
+        max-width: 163px;
+        margin: 0 auto;
+    }
+    .flip-card-front p {
+        flex-shrink: 1;
+        font: 600 1.625rem/1.625rem 'Source Sans Pro';
+        padding-bottom: 1rem;
+    }
+
+/* Style the back side */
+.flip-card-back {
+    display: flex;
+    flex-direction: column;
+    transform: rotateY(180deg);
+}
+    .flip-card-back header {
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 1;
+        justify-content: left;
+        align-items: center;
+        padding: 30px 30px 0;
+    }
+        .flip-card-back header img {
+            height: 60px;
+            max-width: 60px;
+        }
+        .flip-card-back header p {
+            margin-left: 0.5rem;
+            font: 600 1.5rem/1.625rem 'Source Sans Pro';
+            text-align: left;
+        }
+    .flip-card-back > p {
+        flex: 1;
+        padding: 1rem 30px 1rem;
+        text-align: left;
+    }
+
+.team-card {
+    background-color: transparent;
+}
+
+    .team-card header {
+        display: flex;
+        flex-direction: column;
+    }
+        .team-card header h1 {
+            color: #131E29;
+            font: 600 1.5rem/1.625rem 'Source Sans Pro';
+        }
+        .team-card header h2 {
+            color: #003595;
+            font: 700 1.125rem/1.625rem 'Source Sans Pro';
+            height: 52px;
+            text-transform: uppercase;
+        }
+
+    .team-card p {
+        font: 300 1.125rem/1.5rem 'Source Sans Pro';
+        padding: 10px 0;
+    }
+
+    .team-card + .team-card {
+        margin-left: 40px;
+    }
+
+
 @-webkit-keyframes fadeInOut {
     0% {
         opacity:1;
@@ -189,63 +300,6 @@ main #products article section {
     justify-content: space-evenly;
 }
 
-    main #products article section threelrv-flip-card {
-        margin: 20px 0;
-    }
-
-        main #products article section threelrv-flip-card div[slot='front'],
-        main #products article section threelrv-flip-card div[slot='back'] {
-            height: 100%;
-            width: 100%;
-        }
-
-        main #products article section threelrv-flip-card div[slot='front'] {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-            main #products article section threelrv-flip-card div[slot='front'] img {
-                flex: 1;
-                max-width: 163px;
-                margin: 0 auto;
-            }
-            main #products article section threelrv-flip-card div[slot='front'] p {
-                flex-shrink: 1;
-                font: 600 1.625rem/1.625rem 'Source Sans Pro';
-                padding-bottom: 1rem;
-            }
-
-        main #products article section threelrv-flip-card div[slot='back'] {
-            display: flex;
-            flex-direction: column;
-        }
-
-            main #products article section threelrv-flip-card div[slot='back'] header {
-                display: flex;
-                flex-direction: row;
-                flex-shrink: 1;
-                justify-content: left;
-                align-items: center;
-                padding: 30px 30px 0;
-            }
-                main #products article section threelrv-flip-card div[slot='back'] header img {
-                    height: 60px;
-                    max-width: 60px;
-                }
-                main #products article section threelrv-flip-card div[slot='back'] header p {
-                    margin-left: 0.5rem;
-                    font: 600 1.5rem/1.625rem 'Source Sans Pro';
-                    text-align: left;
-                }
-
-            main #products article section threelrv-flip-card div[slot='back'] > p {
-                flex: 1;
-                padding: 1rem 30px 1rem;
-                text-align: left;
-            }
-
-
 main #team article > img {
     background: center/cover no-repeat url('/img/team.png');
     max-width: unset;
@@ -262,15 +316,6 @@ main #team article section {
     display: flex;
     flex-direction: row;
 }
-
-    main #team article section threelrv-team-card + threelrv-team-card {
-        margin-left: 40px;
-    }
-
-        main #team article section threelrv-team-card p {
-            font: 300 1.125rem/1.5rem 'Source Sans Pro';
-            padding: 10px 0;
-        }
 
 main #connect {
     background: var(--connect-bg);
@@ -332,7 +377,7 @@ footer {
         flex-direction: column;
     }
 
-    main #team article section threelrv-team-card + threelrv-team-card {
+    .team-card + .team-card {
         margin-left: 0;
         margin-top: 40px;
     }
