@@ -157,7 +157,6 @@ img {
         opacity:0;
     }
 }
-
 @-moz-keyframes fadeInOut {
     0% {
         opacity:1;
@@ -172,7 +171,6 @@ img {
         opacity:0;
     }
 }
-
 @-o-keyframes fadeInOut {
     0% {
         opacity:1;
@@ -187,7 +185,6 @@ img {
         opacity:0;
     }
 }
-
 @keyframes fadeInOut {
     0% {
         opacity:1;
@@ -207,7 +204,6 @@ header.banner {
     height: 600px;
     position: relative;
 }
-
     header.banner::after {
         content: '';
         position: absolute;
@@ -218,14 +214,12 @@ header.banner {
         background: right no-repeat url(/img/banner-logo.svg), linear-gradient(var(--overlay-bg), var(--overlay-bg));
         z-index: 0;
     }
-
     header.banner svg {
         position: absolute;
         top: 60px;
         left: 60px;
         z-index: 4;
     }
-
     header.banner ul.slider li {
         position: absolute;
         top: 0;
@@ -237,7 +231,6 @@ header.banner {
         -o-transition: opacity 1s ease-in-out;
         transition: opacity 1s ease-in-out;
     }
-
         header.banner ul.slider li.top {
             background: top/cover no-repeat url(/img/derrick-banner.png);
             animation: fadeInOut 3s ease-in-out infinite alternate;
@@ -245,7 +238,6 @@ header.banner {
         header.banner ul.slider li.bottom {
             background: center/cover no-repeat url(/img/analytics-banner.png);
         }
-
     header.banner h1 {
         display: flex;
         flex-direction: column;
@@ -256,7 +248,6 @@ header.banner {
         max-width: 643px;
         text-align: center;
     }
-
         header.banner h1 span {
             color: white;
             display: block;
@@ -264,7 +255,6 @@ header.banner {
             font-weight: 300;
             z-index: 4;
         }
-
             header.banner h1 span + span {
                 font-size: 4rem;
                 font-weight: 700;
@@ -275,12 +265,10 @@ main section article {
     padding: 0 40px;
     max-width: 1153px;
 }
-
     main section article > header {
         margin-bottom: 40px;
     }
-
-        main section article header h1 {
+        main section article > header h1 {
             color: var(--dark-gray-text);
             font: 900 1.75rem/1.625rem 'Source Sans Pro';
             text-align: left;
@@ -300,22 +288,24 @@ main #products article section {
     justify-content: space-evenly;
 }
 
-main #team article > img {
-    background: center/cover no-repeat url('/img/team.png');
-    max-width: unset;
-    width: calc(100vw - 9px);
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-bottom: 40px;
+main #team article {
+    display: none;
 }
-
-main #team article section {
-    display: flex;
-    flex-direction: row;
-}
+    main #team article > img {
+        background: center/cover no-repeat url('/img/team.png');
+        max-width: unset;
+        width: calc(100vw - 9px);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        margin-bottom: 40px;
+    }
+    main #team article section {
+        display: flex;
+        flex-direction: row;
+    }
 
 main #connect {
     background: var(--connect-bg);
@@ -323,19 +313,16 @@ main #connect {
     main #connect article {
         margin-bottom: 0;
     }
-
         main #connect article p {
             color: white;
             font: 900 1.75rem/1.625rem 'Source Sans Pro';
             padding: 40px 0 20px 0;
         }
-
             main #connect article p + p {
                 font: 300 1.5rem/1.625rem 'Source Sans Pro';
                 padding-top: 0;
                 padding-bottom: 40px;
             }
-
             main #connect article p,
             main #connect article a,
             main #connect article a:active,
@@ -350,7 +337,6 @@ main #connect {
 footer {
     background: var(--footer-bg);
 }
-
     footer p {
         color: var(--dark-gray-text);
         font: 300 .625rem/1.5rem 'Source Sans Pro';
