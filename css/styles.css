@@ -65,6 +65,7 @@ img {
     backface-visibility: hidden;
     border-radius: 30px;
     box-shadow: 6px 6px 8px #00000033;
+    transform-style: preserve-3d;
 }
 
 /* Style the front side (fallback if image is missing) */
